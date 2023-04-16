@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import useFetch from "../hooks/useFetch";
 import CharacterCard from "./CharacterCard";
 import { Icharacter } from "./CharacterCard";
 
@@ -10,26 +9,24 @@ const Characters = () => {
     const [info, setInfo] = useState<any>(null);
     const [characters, setCharacters] = useState<Icharacter[] | []>([]);
 
-      useEffect(() => {
-        fetchCharacter(url)
-      }, []);
+    useEffect(() => {
+        fetchCharacter(url);
+    }, []);
 
-    const fetchCharacter = async (url : string) =>
-    {
+    const fetchCharacter = async (url: string) => {
         const response = await fetch(url);
-        response.json()
-        .then((data: any) => {
+        response.json().then((data: any) => {
             const newCharacters = data.results;
             const allCharacters = [...characters, ...newCharacters];
 
             setCharacters(allCharacters);
             setInfo(data.info);
         });
-    }
+    };
 
     const loadMore = async () => {
         let nextUrl = info.next;
-        fetchCharacter(nextUrl)
+        fetchCharacter(nextUrl);
     };
 
     return (
@@ -37,11 +34,15 @@ const Characters = () => {
             {characters && (
                 <>
                     <div className="characters-grid">
-                        {characters.map((character: Icharacter) => (
-                            <CharacterCard character={character} key={character.id} />
+                        {characters.map((character: Icharacter, index: number) => (
+                            <CharacterCard character={character} key={index} />
                         ))}
                     </div>
-                    <button className="more-btn" onClick={loadMore}>more</button>
+                    {characters.length && (
+                        <button className="more-btn" onClick={loadMore}>
+                            more
+                        </button>
+                    )}
                 </>
             )}
         </>

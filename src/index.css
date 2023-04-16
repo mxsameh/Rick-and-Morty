@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;700&display=swap');
+
 /*********************** 
 *** STYLES RESETS
 ************************/
@@ -14,7 +16,7 @@
 }
 body{
   background-color: var(--bg-color);
-
+  font-family: 'Chivo Mono', monospace;
 }
 a{
   text-decoration: none;
@@ -57,7 +59,9 @@ button{
   margin-bottom: 12px;
   text-align: center;
   color: var(--text-primary);
-  font-size: 28px;
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: -.5px;
   line-height: 1;
 }
 .character_species{
@@ -68,11 +72,38 @@ button{
 .more-btn{
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 14x;
+  font-size: 14px;
   background-color: #222;
   color : white;
   border-radius: 8px;
   padding: 12px 32px;
   display: block;
   margin: 0 auto 24px;
+}
+
+/*********************** 
+*** CUSTOM STYLES
+************************/
+.animation_box{
+  background-color: #222;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-100%);
+}
+.animation_text{
+  color: var(--bg-color);
+  font-size: 8vw;
+  overflow-y: hidden;
+  font-kerning: none;
+  letter-spacing: -3px;
+}
+
+#splitTarget .char{
+  transform: translateY(100%);
 }
