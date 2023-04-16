@@ -35,6 +35,9 @@ const Cursor = () => {
         setIsVisible(false);
     };
     useEffect(() => {
+        if(window.innerWidth <= 800){
+            setIsVisible(false)
+        }
         document.addEventListener("mousemove", mouseMoveHandler);
         document.addEventListener("mouseleave", mouseLeaveHandler);
         document.addEventListener("mouseenter", mouseEnterHandler);
