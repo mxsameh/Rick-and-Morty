@@ -38,7 +38,7 @@ const Characters = () => {
                             <CharacterCard character={character} key={index} />
                         ))}
                     </div>
-                    {characters.length && (
+                    {characters.length != 0 && (
                         <button className="more-btn" onClick={loadMore}>
                             more
                         </button>

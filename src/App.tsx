@@ -1,6 +1,7 @@
 import Characters from "./components/Characters";
 import Animation from "./components/Animation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Cursor from "./components/Cursor";
 
 function App() {
     const [animationStatus, setAnimationStatus] = useState<boolean>(true);
@@ -11,6 +12,7 @@ function App() {
 
     return (
         <>
+            <Cursor />
             {animationStatus && <Animation viewContent={viewContent} />}
             {!animationStatus && <Characters />}
         </>

@@ -8,6 +8,8 @@
   --text-primary : #333;
   --text-secondary : #888;
   --border-color : #555;
+  --cursor-primary : white;
+  --cursor-secondary : #777;
 }
 *{
   padding: 0;
@@ -17,6 +19,7 @@
 body{
   background-color: var(--bg-color);
   font-family: 'Chivo Mono', monospace;
+  cursor: none;
 }
 a{
   text-decoration: none;
@@ -106,4 +109,33 @@ button{
 
 #splitTarget .char{
   transform: translateY(100%);
+}
+
+/*********************** 
+*** CUSTOM CURSOR
+************************/
+.cursor_ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--cursor-secondary);
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  pointer-events: none;
+}
+
+.cursor_dot {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: var(--cursor-primary);
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  pointer-events: none;
 }
