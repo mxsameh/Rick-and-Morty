@@ -8,8 +8,8 @@
   --text-primary : #333;
   --text-secondary : #888;
   --border-color : #555;
-  --cursor-primary : white;
-  --cursor-secondary : #777;
+  --cursor-primary : #777;
+  --cursor-secondary : #aaa;
 }
 *{
   padding: 0;
@@ -32,6 +32,7 @@ button{
   border: none;
   outline: none;
   background-color: transparent;
+  cursor: none;
 }
 
 
@@ -118,8 +119,8 @@ button{
   position: fixed;
   top: 0;
   left: 0;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border: 2px solid var(--cursor-secondary);
   border-radius: 100%;
   transform: translate(-50%, -50%);
@@ -131,8 +132,8 @@ button{
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
   background-color: var(--cursor-primary);
   border-radius: 100%;
   transform: translate(-50%, -50%);

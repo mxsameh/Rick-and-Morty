@@ -20,7 +20,7 @@ npm run dev
 
 
 ## Demo App
-[Rick & Morty App](rick-and-morty-iota-seven-68.vercel.app)
+[Rick & Morty App](https://rick-and-morty-iota-seven-68.vercel.app)
 
 
 
