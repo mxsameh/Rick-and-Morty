@@ -1,11 +1,25 @@
 import { useEffect, useState } from "react";
 import CharacterCard from "./CharacterCard";
 import { Icharacter } from "./CharacterCard";
+import { gsap } from "gsap";
+
+const removeHiddenClass = () => {
+    const els = document.querySelectorAll(".character_hidden");
+    els.forEach((el) => {
+        el.classList.remove("character_hidden");
+    });
+};
+const animateChars = () => {
+    gsap.to(".character_hidden", {
+        opacity: 1,
+        duration: 0.3,
+        stagger: 0.2,
+        onComplete: () => {removeHiddenClass()},
+    });
+};
 
 const Characters = () => {
     const url = "https://rickandmortyapi.com/api/character";
-    // const { data } = useFetch(url);
-
     const [info, setInfo] = useState<any>(null);
     const [characters, setCharacters] = useState<Icharacter[] | []>([]);
 
@@ -13,6 +27,15 @@ const Characters = () => {
         fetchCharacter(url);
     }, []);
 
+    useEffect(()=>{
+    // const els = document.querySelectorAll(".character");
+    if(characters.length){
+        animateChars()
+    }
+
+
+
+    },[characters])
     const fetchCharacter = async (url: string) => {
         const response = await fetch(url);
         response.json().then((data: any) => {

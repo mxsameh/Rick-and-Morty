@@ -52,6 +52,9 @@ button{
   align-items: center;
   padding: 12px;
 }
+.character_hidden{
+  opacity: 0;
+}
 .character_image{
   width: 60%;
   aspect-ratio: 1;
